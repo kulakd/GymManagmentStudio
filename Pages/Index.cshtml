@@ -1,0 +1,119 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col turquoise-color">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <i class="fa-sharp fa-solid fa-users"></i>
+                    <p>@Model.TotalMember</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    Total Members
+                </div>
+            </div>
+        </div>
+        <div class="col red-color">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <i class="fa-solid fa-user"></i>
+                    <p>
+                        @Model.ActiveMembers
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    Active Members
+                </div>
+            </div>
+        </div>
+        <div class="col grey-color">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <i class="fa-sharp fa-solid fa-user-minus"></i>
+                    <p>@Model.InActiveMembers</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    Inactive Members
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col turquoise-color">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <i class="fa-sharp fa-solid fa-user-tie"></i>
+                    <p>@Model.TotalTrainers</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    Total Trainers
+                </div>
+            </div>
+        </div>
+        <div class="col red-color">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <i class="fa-solid fa-user-xmark"></i>
+                    <p>@Model.ExpiredMemberShip</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    Expired Memberships
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <h3>Expired Members</h3>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        MemberId
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Join Date
+                    </th>
+                    <th>
+                        Mobile No
+                    </th>
+                </tr>
+                @foreach (var member in @Model.Members!)
+                {
+                    <tr>
+                        <td>
+                            @member.Id
+                        </td>
+                        <td>
+                            @member.FirstName &nbsp; @member.lastName
+                        </td>
+                        <td>
+                            @member.CreatedAt
+                        </td>
+                        <td>
+                            @member.Phone
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
